@@ -109,19 +109,19 @@ CREATE TABLE actors {
     id INTEGER PRIMARY KEY,
     actor_name TEXT,
     agent_id INTEGER
-}
+};
 
 CREATE TABLE agents {
     id INTEGER PRIMARY KEY,
     agent_name TEXT,
-}
+};
 
 CREATE TABLE ensembles {
     id INTEGER PRIMARY KEY,
     character_name TEXT,
     actor_id INTEGER,
     movie_id INTEGER
-}
+};
 
 CREATE TABLE movies {
     id INTEGER PRIMARY KEY,
@@ -129,16 +129,22 @@ CREATE TABLE movies {
     year_released INTEGER,
     MPAA_rating TEXT,
     studio_id INTEGER,
-}
+};
 
 CREATE TABLE studios {
     id INTEGER PRIMARY KEY,
     studio_name TEXT
-}
+};
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+
+-- Planning to take a similar approach to how the airbnb practice file was created.
+-- Used CSVs to be able to easily create data without a lot of manual input here.
+.mode csv
+.import
+
 
 -- Prints a header for the movies output
 .print "Movies"
