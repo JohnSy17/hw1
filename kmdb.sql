@@ -143,8 +143,38 @@ CREATE TABLE studios {
 -- Planning to take a similar approach to how the airbnb practice file was created.
 -- Used CSVs to be able to easily create data without a lot of manual input here.
 .mode csv
-.import
+.import actors.csv actors_data_raw
+.import agents.csv agents_data_raw
+.import ensembles.csv ensembles_data_raw
+.import movies.csv movies_data_raw
+.import studios.csv studios_data_raw
 
+INSERT INTO actors (id, actor_name, agent_id)
+SELECT id, name, agent_id
+FROM actors_data_raw;
+
+INSERT INTO agents (id, agent_name)
+SELECT id, name
+FROM agents_data_raw;
+
+INSERT INTO ensembles (id, character_name, actor_id, movie_id)
+SELECT id, name, actor_id, movie_id
+FROM ensembles_data_raw;
+
+INSERT INTO movies (id, movie_title, year_released, MPAA_rating, studio_id)
+SELECT id, name, year_released, MPAA_rating, studio_id
+FROM movies_data_raw;
+
+INSERT INTO studios (id, studio_name)
+SELECT id, name
+FROM studios_data_raw;
+
+-- Drop tables so not confused with other sources
+DROP TABLE actors_data_raw;
+DROP TABLE agents_data_raw;
+DROP TABLE ensembles_data_raw;
+DROP TABLE movies_data_raw;
+DROP TABLE studios_data_raw;
 
 -- Prints a header for the movies output
 .print "Movies"
