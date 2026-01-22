@@ -245,14 +245,16 @@ WHERE movies.id = 1 or movies.id = 2 or movies.id = 3;
 
 -- Prints a header for the agent's list of represented actors
 .print ""
-.print "Represented by agent"
+.print "Represented by agent Francesca Cornelli"
 .print "===================="
 .print ""
 
 -- ***TODO!***
 -- The SQL statement for the represented actor(s) output goes here.
 
-
+SELECT actors.actor_name
+FROM actors INNER JOIN agents on actors.agent_id = agents.id
+WHERE agents.agent_name = "Francesca Cornelli"
 
 -- Example output:
 -- Represented by agent
