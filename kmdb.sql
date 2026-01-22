@@ -96,8 +96,45 @@
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
 
+DROP TABLE actors;
+DROP TABLE agents;
+DROP TABLE ensembles;
+DROP TABLE movies;
+DROP TABLE studios;
+
 -- Create new tables, according to your domain model
 -- TODO!
+
+CREATE TABLE actors {
+    id INTEGER PRIMARY KEY,
+    actor_name TEXT,
+    agent_id INTEGER
+}
+
+CREATE TABLE agents {
+    id INTEGER PRIMARY KEY,
+    agent_name TEXT,
+}
+
+CREATE TABLE ensembles {
+    id INTEGER PRIMARY KEY,
+    character_name TEXT,
+    actor_id INTEGER,
+    movie_id INTEGER
+}
+
+CREATE TABLE movies {
+    id INTEGER PRIMARY KEY,
+    movie_title TEXT,
+    year_released INTEGER,
+    MPAA_rating TEXT,
+    studio_id INTEGER,
+}
+
+CREATE TABLE studios {
+    id INTEGER PRIMARY KEY,
+    studio_name TEXT
+}
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
