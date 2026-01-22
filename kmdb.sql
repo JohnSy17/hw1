@@ -176,6 +176,10 @@ DROP TABLE ensembles_data_raw;
 DROP TABLE movies_data_raw;
 DROP TABLE studios_data_raw;
 
+-- ***TODO!****
+-- UPDATE TABLES using update statements: Change actor agent from Spongebob to Francesca Cornelli
+
+
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
