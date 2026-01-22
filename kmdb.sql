@@ -90,7 +90,7 @@
 -- Successful sample output is as shown:
 
 -- Turns column mode on but headers off
-.mode column
+.mode columns
 .headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
@@ -105,36 +105,36 @@ DROP TABLE studios;
 -- Create new tables, according to your domain model
 -- TODO!
 
-CREATE TABLE actors {
+CREATE TABLE actors (
     id INTEGER PRIMARY KEY,
     actor_name TEXT,
     agent_id INTEGER
-};
+);
 
-CREATE TABLE agents {
+CREATE TABLE agents (
     id INTEGER PRIMARY KEY,
-    agent_name TEXT,
-};
+    agent_name TEXT
+);
 
-CREATE TABLE ensembles {
+CREATE TABLE ensembles (
     id INTEGER PRIMARY KEY,
     character_name TEXT,
     actor_id INTEGER,
     movie_id INTEGER
-};
+);
 
-CREATE TABLE movies {
+CREATE TABLE movies (
     id INTEGER PRIMARY KEY,
     movie_title TEXT,
     year_released INTEGER,
     MPAA_rating TEXT,
-    studio_id INTEGER,
-};
+    studio_id INTEGER
+);
 
-CREATE TABLE studios {
+CREATE TABLE studios (
     id INTEGER PRIMARY KEY,
     studio_name TEXT
-};
+);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
@@ -176,9 +176,20 @@ DROP TABLE ensembles_data_raw;
 DROP TABLE movies_data_raw;
 DROP TABLE studios_data_raw;
 
--- ***TODO!****
--- UPDATE TABLES using update statements: Change actor agent from Spongebob to Francesca Cornelli
+-- Turn back to nice columns
+.mode columns
+.headers off
 
+
+-- ***TODO!****
+-- UPDATE tables using update statements: Change actor agent from Spongebob to Francesca Cornelli
+UPDATE agents
+SET agent_name = 'Francesca Cornelli'
+WHERE id = 1;
+
+-- Used this code to make sure it worked.
+-- SELECT *
+-- FROM agents;
 
 -- Prints a header for the movies output
 .print "Movies"
