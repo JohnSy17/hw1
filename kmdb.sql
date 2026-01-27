@@ -233,7 +233,7 @@ FROM movies INNER JOIN ensembles on movies.id = ensembles.movie_id
 INNER JOIN actors on actors.id = ensembles.actor_id
 WHERE movies.id = 1 or movies.id = 2 or movies.id = 3;
 
--- Example output:
+-- Example output: Note that I added a few more charactors so output may be a little different.
 -- Top Cast
 -- ========
 -- Batman Begins          Christian Bale        Bruce Wayne
@@ -266,6 +266,12 @@ FROM actors INNER JOIN agents on actors.agent_id = agents.id
 WHERE agents.agent_name = "Francesca Cornelli"
 
 -- Example output:
--- Represented by agent
+-- Represented by agent Francesca Cornelli
 -- ====================
+
 -- Christian Bale
+-- Michael Caine 
+-- Katie Holmes  
+-- Gary Oldman   
+-- Heath Ledger  
+-- Aaron Eckhart 
