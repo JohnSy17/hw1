@@ -182,10 +182,19 @@ DROP TABLE studios_data_raw;
 
 
 -- ***TODO!****
--- UPDATE tables using update statements: Change actor agent from Spongebob to Francesca Cornelli
+-- UPDATE tables using update statements: Change actor agent from Spongebob to Francesca Cornelli; 
 UPDATE agents
 SET agent_name = 'Francesca Cornelli'
 WHERE id = 1;
+
+-- Assign an agent as the representative of a single actor.
+
+UPDATE actors
+SET agent_id = 1
+WHERE actor_name = "Aaron Eckhart";
+
+-- SELECT * FROM ACTORS;
+
 
 -- Used this code to make sure it worked.
 -- SELECT *
